@@ -108,7 +108,7 @@ const AddContact = props => {
         .then(() => {
           console.log('It was saved Successfully')
           props.navigation.popToTop();
-         //onselect();
+         
         })
         .catch(() => {
           console.log('There was an error saving the product');

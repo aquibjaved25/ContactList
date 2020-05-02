@@ -14,10 +14,7 @@ const ContactList = props => {
    
     const actionButtonHandler = () => {
 
-        props.navigation.navigate({ routeName: 'AddContact',params:{
-            
-        onSelect:this.onSelect
-        } })
+        props.navigation.navigate({ routeName: 'AddContact' })
     };
 
 
@@ -61,7 +58,8 @@ if(contacts.length>0){
               name={item.name}
               mobile={item.mobile}
               landline = {item.landline}
-
+              favorite = {item.favorite}
+              
               onSelect= {()=>{
                   props.navigation.navigate({
                       routeName:'AddContact'
@@ -69,8 +67,8 @@ if(contacts.length>0){
                         name:item.name,
                         mobile:item.mobile,
                         landline:item.landline,
-                        uri:item.uri
-                        
+                        uri:item.uri,
+                        favorite:item.favorite
                     }
                   });
               } }
@@ -85,8 +83,11 @@ if(contacts.length>0){
     );}
     else{
         return(
-            <View style={styles.container}>
+            <View style={styles.screen}>
       <Text>Please Add Contacts</Text>
+
+      <ActionButton buttonColor="rgba(231,76,60,1)"
+            onPress = {actionButtonHandler}  />
     </View>
         );
     }
