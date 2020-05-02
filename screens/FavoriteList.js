@@ -32,9 +32,12 @@ const FavoriteList = props =>{
         });
     };
 
-useEffect(() => {
-    fetchData();
-},[]);
+    useEffect(() => {
+        
+        const willFocusSub = props.navigation.addListener('willFocus',fetchData);
+        return() =>{ willFocusSub.remove();};
+        
+       }, [fetchData]);
 
 
     if(contacts.length >0){
